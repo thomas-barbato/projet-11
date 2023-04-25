@@ -1,4 +1,3 @@
-import time
 from locust import HttpUser, task, between
 
 
@@ -15,14 +14,14 @@ class Tests(HttpUser):
 
     @task
     def access_summary(self):
-        self.client.post("/showSummary", data={'email': 'admin@irontemple.com'})
+        self.client.post("/showSummary", data={"email": "admin@irontemple.com"})
 
     @task
     def booking_a_competition(self):
-        self.client.post("/purchasePlaces", data={"places": "2",
-                                                  "club": "Iron Temple",
-                                                  "competition": "Fall Classic"
-                                                  })
+        self.client.post(
+            "/purchasePlaces",
+            data={"places": "2", "club": "Iron Temple", "competition": "Fall Classic"},
+        )
 
     @task
     def access_clubs_overview(self):

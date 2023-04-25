@@ -1,4 +1,3 @@
-import pytest
 import server
 
 
@@ -9,4 +8,4 @@ client = server.app.test_client()
 def test_if_url_redirect_after_logout():
     response = client.get("/logout/")
     assert response.status_code == 302
-    assert response.headers.get('Location') == "/"
+    assert response.headers.get("Location") == "/"
