@@ -14,7 +14,7 @@ def competitions():
     yield server.competitions
 
 
-def test_check_club_can_afford_place(clubs, competitions):
+def test_club_can_afford_place(clubs, competitions):
     response = client.post(
         "/purchasePlaces",
         data={
@@ -24,10 +24,10 @@ def test_check_club_can_afford_place(clubs, competitions):
         },
     )
     assert response.status_code == 200
-    assert b"Great-booking complete!"
+    assert b"Great-booking complete!" in response.data
 
 
-def test_check_club_cant_reserve_this_place_amount(clubs, competitions):
+def test_club_cannot_afford_place(clubs, competitions):
     response = client.post(
         "/purchasePlaces",
         data={
@@ -37,10 +37,10 @@ def test_check_club_cant_reserve_this_place_amount(clubs, competitions):
         },
     )
     assert response.status_code == 200
-    assert b"your club does not have enough points to affords this."
+    assert b"your club does not have enough points to affords this." in response.data
 
 
-def test_check_club_cant_afford_more_than_12_place(clubs, competitions):
+def test_club_cannot_book_more_than_12_places(clubs, competitions):
     response = client.post(
         "/purchasePlaces",
         data={
@@ -50,4 +50,4 @@ def test_check_club_cant_afford_more_than_12_place(clubs, competitions):
         },
     )
     assert response.status_code == 200
-    assert b"You cannot reserve more than 12 places"
+    assert b"You cannot reserve more than 12 places" in response.data
