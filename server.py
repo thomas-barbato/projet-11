@@ -31,6 +31,7 @@ def showSummary():
     try:
         club = [club for club in clubs if club["email"] == request.form["email"]][0]
     except IndexError:
+        flash("Email does not exist")
         return redirect(url_for("index"))
     return render_template("welcome.html", club=club, competitions=competitions)
 
@@ -78,6 +79,15 @@ def displayPoints():
     return redirect(url_for("index"))
 
 
-@app.route("/logout")
+@app.route("/logout/", methods=['GET'])
 def logout():
     return redirect(url_for("index"))
+
+
+
+if __name__ == '__main__':
+    import os
+    # guaranteed to not be run on a production server
+    assert os.path.exists('.env')  # for other environment variables...
+    os.environ['FLASK_ENV'] = 'development'  # HARD CODE since default is production
+    app.run(debug=True)
