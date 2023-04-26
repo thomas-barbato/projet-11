@@ -77,3 +77,14 @@ Pour executer coverage, vous devrez entrer la commande suivante dans votre termi
 
 Pour sauvegarder ensuite le rapport en html:
 - ``coverage html``
+
+##### *Flake8*
+
+Vous pouvez consulter le rapport flake8 dans le répertoire suivant:
+- ``flake-report/index.html``
+
+Pour generer vous même un test, entrez la commande suivante dans votre terminal:
+- ``flake8``
+
+Aucun argument n'est necessaire, car nous avons déjà un fichier de configuration ici:
+- ``setup.cfg``
