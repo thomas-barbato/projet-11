@@ -72,6 +72,8 @@ Vous pouvez consulter le rapport coverage situé dans:
 Il s'ouvre avec votre navigateur web, **les spécifications fonctionnelles exigent d'avoir un taux
 de couverture de 60% , ici nous sommes à 88%.**
 
+!["Résultats de coverage en image"](coverage_results.PNG)
+
 Pour executer coverage, vous devrez entrer la commande suivante dans votre terminal:
 - ``coverage run -m pytest .\tests\``
 
