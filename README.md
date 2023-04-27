@@ -19,11 +19,20 @@ Du fait que ce projet est un **fork** (nouveau logiciel créé à partir d'un lo
 vous devrez cloner mon **fork**, pour ce faire : 
 1. Ouvrez un terminal de commande
 2. Entrez : ``git clone https://github.com/thomas-barbato/projet-11``
-3. Installez les prérequis au bon fonctionnement du projet avec la commande suivante:
+3. Créer un environnement virtuel:
+`python3 -m venv /path/to/new/virtual/environment`
+ Ou `python -m virtualenv venv`
+4. Activer l'environnement virtuel:
+```
+cd Venv\Scripts\ ; .\activate.bat ;
+cd .. 
+cd ..
+```
+5. Installez les prérequis au bon fonctionnement du projet avec la commande suivante:
    - Version "normale": ``pip install -r requirements.txt``
    - Version "testing": ``pip install -r requirements-testing.txt``
 #
-### Demarrage de l'application:
+### Démarrage de l'application:
 Pour faire fonctionner l'application, vous aurez besoin de démarrer Flask, pour cela:
 1. Ouvrez un terminal **externe** à votre IDE *( integrated development environment)*
 dans le dossier du projet.
@@ -43,9 +52,9 @@ outils différents, leur utilisation est expliquée ci-dessous:
 Les tests qui ont étés rédigés pour ce projet se trouvent dans le répertoire **tests**
 Pour lancer pytest veuillez entrer la commande suivante dans votre terminal:
 
-- ``pytest .\tests\``
+- `pytest .\tests\`
 
-Cette commande executera tous les tests qui se trouvent dans le répertoire tests, vous pouvez
+Cette commande exécutera tous les tests qui se trouvent dans le répertoire tests, vous pouvez
 choisir vos tests en ajoutant directement le nom du fichier test ciblé, exemple:
 - ``pytest .\tests\test_clubs.py``
 
@@ -54,14 +63,14 @@ choisir vos tests en ajoutant directement le nom du fichier test ciblé, exemple
 Concernant Locust, vous pouvez consulter le rapport généré dans le dossier **locust_report**, 
 il s'ouvre dans un navigateur.
 
-Cependant, si vous voulez lancer vous même le test locust, entrez commandes suivantes dans votre terminal:
+Cependant, si vous voulez lancer vous-même le test locust, entrez la commande suivante dans votre terminal:
 
 - ``locust -f .\tests\locustfile.py``
 
 Vous aurez alors l'url suivante générée : 
  - http://0.0.0.0:8089
 
-**CEPENDANT** si cette url ne fonctionne pas alors, vous devez utiliser l'url suivante : 
+**CEPENDANT** si cette url ne fonctionne pas, alors vous devez utiliser l'url suivante : 
  - http://localhost:8089/
 
 ##### *Coverage*
@@ -74,7 +83,7 @@ de couverture de 60% , ici nous sommes à 88%.**
 
 !["Résultats de coverage en image"](coverage_results.PNG)
 
-Pour executer coverage, vous devrez entrer la commande suivante dans votre terminal:
+Pour exécuter coverage, vous devrez entrer la commande suivante dans votre terminal:
 - ``coverage run -m pytest .\tests\``
 
 Pour sauvegarder ensuite le rapport en html:
@@ -85,8 +94,8 @@ Pour sauvegarder ensuite le rapport en html:
 Vous pouvez consulter le rapport flake8 dans le répertoire suivant:
 - ``flake-report/index.html``
 
-Pour generer vous même un test, entrez la commande suivante dans votre terminal:
+Pour générer vous-même un test, entrez la commande suivante dans votre terminal:
 - ``flake8``
 
-Aucun argument n'est necessaire, car nous avons déjà un fichier de configuration ici:
+Aucun argument n'est nécessaire, car nous avons déjà un fichier de configuration ici:
 - ``setup.cfg``
